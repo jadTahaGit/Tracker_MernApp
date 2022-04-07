@@ -22,7 +22,11 @@ connection.once("open", () => {
   console.log("MongoDB connection established Successfully!");
 }); // once Connection is oppened -> log ...
 
-app.get("/", (req, res) => res.send("Hello Coachync!"));
+const exerciseRouter = require("./routes/exercises");
+const usersRouter = require("./routes/users");
+
+app.use("/exercises", exerciseRouter);
+app.use("/users", usersRouter);
 
 // Starts the server by start to Listning on a certain port
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
