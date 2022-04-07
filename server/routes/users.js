@@ -11,7 +11,6 @@ router.get("/", (req, res) => {
 
 router.post("/add", (req, res) => {
   const username = req.body.username;
-
   const newUser = new User({ username: username });
 
   newUser
